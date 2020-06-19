@@ -4,7 +4,7 @@ bcrypt==3.1.7
 beautifulsoup4==4.9.1
 certifi==2020.4.5.1
 cffi==1.14.0
-Django==3.0.3
+Django==3.0.7
 django-bootstrap3==12.1.0
 django-bootstrap4==2.0.1
 django-braces==1.14.0

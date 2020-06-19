@@ -1,0 +1,27 @@
+<!-- Linked to django.contrib.auth.views.LoginView -->
+
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h2>Please Log In:</h2>
+    <h3>(Must be superuser, check in with the site's admin)</h3>
+
+    {% if form.errors %}
+        <p>Your username and password didn't match! Please try again.</p>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method='POST'>
+        {% csrf_token %}
+            {{ form.as_p }} <!--AuthenticationForm from LoginView-->
+            <input type="submit" class="btn btn-primary" value="Login">
+
+            <!-- path("accounts/logout/",
+                views.LogoutView.as_view(), 
+                name="logout", kwargs={"next_page":"/"}) -->
+
+                <!-- Redirects to home after logging out-->
+             <input type="hidden" name="next" value="{{ next }}"> 
+    </form>
+</div>
+{% endblock %}
